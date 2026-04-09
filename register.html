@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; max-width: 900px; margin: 2rem auto; padding: 0 1rem;}
+            form {border: 1px solid #ddd; padding: 1rem; border-radius: 6px;}
+            input, select {width: 100%; padding: 0.5rem; margin-top: 0.25rem; box-sizing: border-box;}
+            .row {display: flex; gap: 1rem;}
+            .row > div {flex: 1;}
+        </style>
+    </head>
+    <body>
+        <h1>Create and Account</h1>
+        <form id="registerForm" action="#" method="post" novalidate>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="fullname">Full Name</label>
+                <input id="fullname" name="fullname" type="text"
+                placeholder="Full Name"
+                required
+                minlength="2"
+                title="Please enter a valid name.">
+
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="text"
+                placeholder="Email"
+                required
+                title="Please enter an email address.">
+
+                <label>Gender</label>
+                <div>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="other" name="gender" value="other" required>
+                    <label for="other">Other</label>                
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Account Details</legend>
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text"
+                placeholder="username"
+                required
+                minlength="3"
+                title="Please enter a username.">
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="text"
+                placeholder="Password"
+                required
+                minlength="8"
+                title="Please enter a password.">
+
+                <label for="plan">Choose a plan</label>
+                <select id="plan" name="plan" required>
+                    <option value="">Select a plan</option>
+                    <option value="free">Free</option>
+                    <option value="pro">Pro</option>
+                    <option value="enterprise">Enterprise</option>
+                </select>
+            </fieldset>
+            <div style="margin-top: 1rem;">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        <script>
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                if(!this.checkValidity()) {
+                    e.preventDefault();
+                    this.reportValidity();
+                } else {
+                    e.preventDefault();
+                    alert('Form is valid! (Demo prevents actual submission)');
+                }
+            })
+        </script>
+    </body>
+</html>
